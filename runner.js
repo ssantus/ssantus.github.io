@@ -10,24 +10,23 @@ class Runner{
   add(a, b){
     return a.map((ai, i) => ai + b[i]);
   }
-  multiply(a, b){
-    return a.map((ai, i) => ai * b[i]);
+  scalar_mult(a, b){
+    return a.map((ai, i) => ai * b);
   }
 
   // calculate xdot
   xdot(x, u){
     const fx = this.system.f(x);
     const gx = this.system.g(x);
-    const gxu = this.multiply(gx, u);
+    const gxu = this.scalar_mult(gx, u);
     return this.add(fx, gxu);
   }
   
   // euler integration
-  step(x, xdot){
+  step(x, xdot, u){
     const dt = this.dt;
-    const xdotdt = this.multiply(xdot, dt);
-  //  return this.add(x, xdotdt);
-    return [0.,0.];
+    const xdotdt = this.scalar_mult(xdot, dt);
+    return this.add(x, xdotdt);
   }
   
   print_x(x){
