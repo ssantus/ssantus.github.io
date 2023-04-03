@@ -12,9 +12,11 @@ layout: home
     </style>
   </head>
 <body>
-<canvas id="canvas-dynamics"></canvas>
+<canvas id="canvas_anim"></canvas>
+<canvas id="canvas_traj"></canvas>
 <p id="output"></p>
-<script src="pendulum.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="systems/pendulum.js"></script>
 <script src="runner.js"></script>
 <script src="main.js"></script>
 </body>
